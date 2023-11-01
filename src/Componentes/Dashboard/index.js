@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import{purple} from '@mui/material/colors';
+import{purple } from '@mui/material/colors';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -22,7 +22,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
-import Alerts from '../Alerts';
+import Alerts from '../Alerts/alert';
 
 function Copyright(props) {
   return (
@@ -83,7 +83,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const theme= createTheme({
+const styleTheme= createTheme({
   palette:{
     primary:{
       main:purple[500],
@@ -100,7 +100,7 @@ function DashboardContent(props) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={styleTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -130,7 +130,7 @@ function DashboardContent(props) {
             >
               {props.title}
             </Typography>
-            <IconButton color="primary">
+            <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
               </Badge>
