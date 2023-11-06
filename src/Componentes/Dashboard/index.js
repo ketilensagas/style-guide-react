@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import{purple } from '@mui/material/colors';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -11,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -83,16 +83,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const styleTheme= createTheme({
-  palette:{
-    primary:{
-      main:purple[500],
-    },
-    secondary:{
-      main:'#ba68c8',
-    },
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
   },
 });
+
 function DashboardContent(props) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
@@ -100,7 +96,7 @@ function DashboardContent(props) {
   };
 
   return (
-    <ThemeProvider theme={styleTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -111,7 +107,6 @@ function DashboardContent(props) {
           >
             <IconButton
               edge="start"
-              color="inherit"
               aria-label="open drawer"
               onClick={toggleDrawer}
               sx={{
@@ -124,14 +119,14 @@ function DashboardContent(props) {
             <Typography
               component="h1"
               variant="h6"
-              color="inherit"
               noWrap
               sx={{ flexGrow: 1 }}
             >
               {props.title}
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={10} color="success">
+                <MailIcon />
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -160,10 +155,6 @@ function DashboardContent(props) {
         <Box
           component="main"
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.gray[100]
-                : theme.palette.gray[900],
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
@@ -182,7 +173,7 @@ function DashboardContent(props) {
                     height: 240,
                   }}
                 >
-                  <Alerts type="warning" >Gráfico atualizado</Alerts>
+                  <Alerts type="warning" ></Alerts>
                   <Chart />
                 </Paper>
               </Grid>

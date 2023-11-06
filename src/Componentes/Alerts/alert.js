@@ -1,13 +1,11 @@
 
 import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
 
-export default function FilledAlerts() {
+export default function ColorAlerts() {
   return (
-    <Stack sx={{ width: '100%' }} spacing={2}>
-      <Alert variant="filled" severity="success">
-        Seu gráfico está atualizado!
-      </Alert>
-    </Stack>
-  );
+    <Alert severity="success" color="info">
+    Seu gráfico está atualizado!
+  </Alert>
+);
 }
+  

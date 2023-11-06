@@ -14,11 +14,11 @@ export default function Deposits() {
       <Typography component="p" variant="h4">
         $1000
       </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
+      <Typography sx={{ flex: 1 }}>
         on 18 October, 2023
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        <Link href="#" onClick={preventDefault}>
           View balance
         </Link>
       </div>

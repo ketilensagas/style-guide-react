@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -78,9 +80,11 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
+      <Link href="#" onClick={preventDefault} sx={{ mt: 3 }}>
       </Link>
+      <Stack spacing={2}>
+      <Pagination count={10}/> 
+      </Stack>
     </React.Fragment>
   );
 }
